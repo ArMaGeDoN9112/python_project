@@ -65,6 +65,7 @@ def upload_file():
     ) as _:
         pass
 
+    os.remove(f"audio/_{key}.{ext}")
     return jsonify({"key": key}), 200
 
 
@@ -87,8 +88,10 @@ def video_feed(key):
 @app.route("/api/get-statistic/<key>")
 def get_stat(key):
     filename = f"./statistic/{key}.png"
+    response = send_file(filename, mimetype='image/png')
+    os.remove(filename)
 
-    return send_file(filename, mimetype='image/png')
+    return response
 
 
 @sock.route("/api/analyze")
@@ -119,7 +122,6 @@ def start_analyze(_sock):
 
         if not s:
             continue
-
         _sock.send(json.dumps({"result": "OK", "string": s}, ensure_ascii=False))
 
 
