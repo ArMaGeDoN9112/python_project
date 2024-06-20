@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{{ url_for('static', filename='../static/css/style.css')}}">
+	
+    <title>Bams Bams</title>
+    
+</head>
+<div class="gradient"></div>
+<body>
+	
+<div id="wrapper">
+		<header>
+			<!-- <a href="/"><img src="{{ url_for('static', filename='ic_bamsbams.svg') }}" alt="BamsBams logo" class="ic_bb"></a> -->
+			<a href="/" id="Logo">Эмоции.Текст</a>
+			<nav id="header1">
+				<ul class="top-menu">
+					{%if lang=='ru'%}
+					<li><a href="" class="active">Генерация</a></li>
+					<li><a href="">Библиотека</a></li>
+					<li><a href="">Создатели</a></li>
+					{%elif lang=='en'%}
+					<li><a href="" class="active">Generation</a></li>
+					<li><a href="">Library</a></li>
+					<li><a href="">Creators</a></li>
+					{%elif lang=='zh'%}
+					<li><a href="" class="active">代</a></li>
+					<li><a href="">图书馆</a></li>
+					<li><a href="">创造者</a></li>
+					{%endif%}
+				</ul>
+			</nav>
+			<span class="custom-dropdown big">  
+				<select id="site-language-selector" >   
+				{%if lang=='ru'%}
+				 <option>Ru</option>  
+				 <option>En</option>   
+				 <option>zh</option>  
+				 {%elif lang=='en'%}
+				 <option>En</option>   
+				 <option>Ru</option>  
+				 <option>zh</option>  
+				 {%elif lang=='zh'%}
+				 <option>zh</option>   
+				 <option>Ru</option>  
+				 <option>en</option>  
+				 {%endif%}
+				</select> 
+			</span> 
+		</header>
+		<div class="conteiner_text">
+			<div class="try">
+			<div class="ew">
+			<div class="settings">
+				{%if lang=='ru'%}
+				<p class="name_func">
+					Протоколирование встреч
+				</p>
+				{%elif lang=='en'%}
+				<p class="name_func1">
+					Logging of meetings
+				</p>
+				{%elif lang=='zh'%}
+				<p class="name_func1">
+					会议记录
+				</p>
+				{%endif%}
+				<div class="sett_change">
+					{%if lang=='ru'%}
+					<p class="sett">Загрузка файлов</p>
+					{%elif lang=='en'%}
+					<p class="sett">Uploading files</p>
+					{%elif lang=='zh'%}
+					<p class="sett">上传文件s</p>
+					{%endif%}
+				</div>
+					<div id="upload_file" class="upload_file">
+						<form hidden>
+							<input type="file" name="file" id="file">
+						</form>
+					<div class="load-file"><img class="load-file" src="../static/file_exp.svg"></img></div>
+					{%if lang=='ru'%}
+					<div  class="load-file"><p class="sett1">Выбрать файл WAV, MP3 или MP4</p></div>
+					<div class="load-file"><p class="sett2">Или перетащите его сюда</p></div>
+					{%elif lang=='en'%}
+					<div class="load-file"><p class="sett1">Select WAV, MP3 or MP4 file</p></div>
+					<div class="load-file"><p class="sett2">Or drag it here</p></div>
+					{%elif lang=='zh'%}
+					<div class="load-file"><p class="sett1">选择WAV MP3或MP4文件</p></div>
+					<div class="load-file"><p class="sett2">或者把它拖到这里</p></div>
+					{%endif%}
+					<div class="load-file"><p id="file-span" class="sett1"></p></div>
+					</div>
+					<div class="sett_change">
+						{%if lang=='ru'%}
+						<p class="sett">Настройки</p>
+						{%elif lang=='en'%}
+						<p class="sett">Settings</p>
+						{%elif lang=='zh'%}
+						<p class="sett">设置</p>
+						{%endif%}
+					</div>
+					<nav>
+						<ul class="aside-menu">
+							<div class="sett_select">
+								<div class="desc_sett">
+								{%if lang=='ru'%}
+								<li>Выбор языка</li>
+								<li class="desc">Выберите язык, на котором аудио(видео)запись</li>
+								{%elif lang=='en'%}
+								<li>Language selection</li>
+								<li class="desc">Select the language in which the audio(video) is record</li>
+								{%elif lang=='zh'%}
+								<li>语言选择</li>
+								<li class="desc">选择音频（视频）所在的语言</li>
+								{%endif%}
+								</div>
+								<div class="lang">
+									<form>
+
+										<select id="fruits" name="fruits">
+										{%if lang=='ru'%}
+										<option value="apple">Русский</option>
+										<option value="banana">Английский</option>
+										<option value="orange">Китайский</option>
+										{%elif lang=='en'%}
+										<option value="apple">Russian</option>
+										<option value="banana">English</option>
+										<option value="orange">Chinese</option>
+										{%elif lang=='zh'%}
+										<option value="apple">俄语</option>
+										<option value="banana">英语</option>
+										<option value="orange">中文</option>
+										{%endif%}
+										</select>
+									</form>
+								</div>
+							</div>
+							<div class="sett_select">
+								<div class="sett_desc1">
+									{%if lang=='ru'%}
+									<li>Эмоциональный окрас</li>
+									<li class="desc">Эмоциональная окраска текста</li>
+									{%elif lang=='en'%}
+									<li>Emotional coloring</li>
+									<li class="desc">Emotional coloring of the text</li>
+									{%elif lang=='zh'%}
+									<li>情感着色</li>
+									<li class="desc">文本的情感着色</li>
+									{%endif%}
+								</div>
+								<label class="switch">
+									<input type="checkbox">
+									<span class="slider round" id="emotion_toggle"></span>
+								</label>
+							</div>
+							<div class="sett_select">
+								<div class="sett_desc2">
+									{%if lang=='ru'%}
+									<li>Эмоциональная статистика</li>
+									<li class="desc">Показывать статистику по эмоциям</li>
+									{%elif lang=='en'%}
+									<li>Emotional statistics</li>
+									<li class="desc">Show statistics on emotions</li>
+									{%elif lang=='zh'%}
+									<li>情绪统计</li>
+									<li class="desc">显示情绪统计</li>
+									{%endif%}
+								</div>
+								<label class="switch">
+									<input id="statistic_enabler" type="checkbox">
+									<span class="slider round"></span>
+								</label>
+							</div>
+							{%if lang=='ru'%}
+							<button id="send-file" class="btn btn-3 btn-sep icon-heart">Генерировать</button>
+							{%elif lang=='en'%}
+							<button id="send-file" class="btn btn-3 btn-sep icon-heart">Generate</button>
+							{%elif lang=='zh'%}
+							<button id="send-file" class="btn btn-3 btn-sep icon-heart">生成</button>
+							{%endif%}
+						</ul>
+					</nav>
+				</div>
+				</div>
+
+				<div>
+					<div class="text" id="text">
+						{%if lang=='ru'%}
+						<p id="phint-text" class="hint-text">Ваш текст появится здесь...</p>
+						{%elif lang=='en'%}
+						<p id="phint-text" class="hint-text">Your text will appear here...</p>
+						{%elif lang=='zh'%}
+						<p id="phint-text" class="hint-text">您的文本将出现在这里</p>
+						{%endif%}
+					</div>
+				</div>
+
+
+		</div>
+		</section>
+		
+</div>
+
+<script src="{{url_for('static', filename='scripts/selector_lang.js')}}"> </script> 
+<script src="{{url_for('static', filename='scripts/main.js')}}"></script> 
+</body>
+</html>

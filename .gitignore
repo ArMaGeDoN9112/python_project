@@ -1,0 +1,14 @@
+/static
+/audio
+/statistic
+/test_data
+/venv
+123.py
+analyze_o.py
+app_o.py
+docker-compose.yml
+.dockerignore
+Dockerfile
+fer_o.py
+.idea
+__pycahe__/

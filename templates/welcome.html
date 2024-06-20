@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome!</title>
+</head>
+<body>
+{%if name%}
+{%if template_color%}
+<style type="text/css">
+* {
+    background-color:black;
+}
+</style>
+<h1>Hello {{ name }}! You are cutie</h1>
+<img src="{{ url_for('static', filename='3372fcf6-4a3c-4611-b62d-57bdfbcad381.jpg') }}">
+{%else%}
+
+{% endif %}
+{%else%}
+<h1>You forgot to fill login!!! Try again!</h1>
+<a href="http://127.0.0.1:5000/login"><h1>LOGIN!!!!!</h1>></a>
+<img src="{{ url_for('static', filename='15434416761733567.jpg') }}" width="300" height="200">
+{% endif %}
+</body>
+</html>
