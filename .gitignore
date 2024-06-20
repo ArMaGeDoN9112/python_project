@@ -1,4 +1,3 @@
-/static
 /audio
 /statistic
 /test_data
@@ -12,3 +11,4 @@ Dockerfile
 fer_o.py
 .idea
 __pycahe__/
+.DS_Store

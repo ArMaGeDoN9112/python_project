@@ -93,6 +93,13 @@ def get_stat(key):
 
     return response
 
+@app.route("/api/download-file/<key>")
+def download_file(key):
+    filename = f"./files/{key}.docx"
+    response = send_file(filename, mimetype='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+    os.remove(filename)
+
+    return response
 
 @sock.route("/api/analyze")
 def start_analyze(_sock):

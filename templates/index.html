@@ -186,6 +186,24 @@
 									<span class="slider round"></span>
 								</label>
 							</div>
+							<div class="sett_select">
+								<div class="sett_desc3">
+									{%if lang=='ru'%}
+									<li>Файл</li>
+									<li class="desc">Скачать файл</li>
+									{%elif lang=='en'%}
+									<li>File</li>
+									<li class="desc">Download file</li>
+									{%elif lang=='zh'%}
+									<li>档案</li>
+									<li class="desc">下载档案</li>
+									{%endif%}
+								</div>
+								<label class="switch">
+									<input id="download_file_enabler" type="checkbox">
+									<span class="slider round"></span>
+								</label>
+							</div>
 							{%if lang=='ru'%}
 							<button id="send-file" class="btn btn-3 btn-sep icon-heart">Генерировать</button>
 							{%elif lang=='en'%}
@@ -201,11 +219,11 @@
 				<div>
 					<div class="text" id="text">
 						{%if lang=='ru'%}
-						<p id="phint-text" class="hint-text">Ваш текст появится здесь...</p>
+							<p id="phint-text" class="hint-text">Ваш текст появится здесь...</p>
 						{%elif lang=='en'%}
-						<p id="phint-text" class="hint-text">Your text will appear here...</p>
+							<p id="phint-text" class="hint-text">Your text will appear here...</p>
 						{%elif lang=='zh'%}
-						<p id="phint-text" class="hint-text">您的文本将出现在这里</p>
+							<p id="phint-text" class="hint-text">您的文本将出现在这里</p>
 						{%endif%}
 					</div>
 				</div>

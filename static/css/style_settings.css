@@ -25,7 +25,7 @@ p.name_func1{
   font-weight:bold;
   word-wrap: break-word;
   margin-bottom: 0;
-  font-size:36px;
+  font-size:30px;
 }
 
 div.settings{
@@ -58,7 +58,7 @@ div.upload_file{
 	padding-top: 25px;
 	cursor: pointer;
 	width: 336px;
-	height: 168px;
+	height: 148px;
 	display: inline-block;
 	margin-left: 15px;
 	border-radius: 20px;

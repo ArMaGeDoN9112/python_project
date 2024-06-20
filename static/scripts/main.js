@@ -46,8 +46,6 @@ document.getElementById("emotion_toggle").onclick = () => {
 }
 
 
-
-
 function colorFromNum(num) {
     switch (num) {
         case "0":
@@ -70,18 +68,12 @@ function colorFromNum(num) {
 
 function runListener(key) {
     socket = new WebSocket('/api/analyze');
-//    document.getElementById("phint-text").style.visibility = "hidden";
-    const nodeList = document.getElementsByClassName("_text");
+    // document.getElementById("phint-text").style.visibility = "hidden";
 
     console.log(use_colors);
 
-//    for (let i = 0; i < nodeList.length; i++) {
-//      nodeList[i].remove();
-//    }
-
-
-
     use_statistic = document.getElementById("statistic_enabler").checked;
+    download_file = document.getElementById("download_file_enabler").checked;
     
     socket.onmessage = (ev) => {
 
@@ -124,6 +116,23 @@ function runListener(key) {
             const container = document.getElementById("text");
             container.appendChild(imageElement);
           })
+        }
+
+        if (download_file) {
+            fetch("/api/download-file/"+key, {
+                method: "GET"
+              })
+                .then((response) => response.blob())
+                .then((blob) => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    a.download = key;
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                })
         }
     }
 

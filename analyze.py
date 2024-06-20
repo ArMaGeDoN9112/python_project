@@ -17,6 +17,9 @@ import matplotlib.pyplot as plt
 from vosk import Model, KaldiRecognizer, SetLogLevel
 from pydub import AudioSegment
 
+import docx
+from docx.shared import RGBColor
+
 
 tensorflow.keras.config.disable_interactive_logging()
 warnings.simplefilter("ignore")
@@ -82,6 +85,13 @@ statistic = {0:0,
             4:0,
             5:0}
 
+colors = {  0: RGBColor(171, 37, 37),
+            1:RGBColor(111, 79, 40),
+            2:RGBColor(255,164,33),
+            3:RGBColor(72,164,63),
+            4:RGBColor(157,163,166),
+            5:RGBColor(52,129,184)}
+
 use_colors = sys.argv[2] == "true"
 gen_statistic = sys.argv[3] == "true"
 
@@ -117,6 +127,15 @@ def make_predict(file_name, start, end):
 
     return np.argmax(pr)
 
+def add_to_word(text, color):
+    font = paragraph.add_run(text).font
+    if color != -1:
+        font.color.rgb = colors[color]
+    paragraph.add_run(" ")
+
+
+doc = docx.Document()
+paragraph = doc.add_paragraph("")
 
 with subprocess.Popen(["ffmpeg", "-loglevel", "quiet", "-i",
                        FILE_PATH + FILE_NAME,
@@ -147,7 +166,11 @@ with subprocess.Popen(["ffmpeg", "-loglevel", "quiet", "-i",
 
                     pr = make_predict(FILE_NAME, start, end)
                     if use_colors:
+                        add_to_word(sent, pr)
                         print(sent, "@", pr, sep="")
+                    else:
+                        add_to_word(sent, -1)
+                        print(sent, "@", sep="")
 
                     i += 5
                     statistic[pr] += 5
@@ -163,7 +186,11 @@ with subprocess.Popen(["ffmpeg", "-loglevel", "quiet", "-i",
                     pr = make_predict(FILE_NAME, start, end)
 
                     if use_colors:
+                        add_to_word(sent, pr)
                         print(sent, "@", pr, sep="")
+                    else:
+                        add_to_word(sent, -1)
+                        print(sent, "@", sep="")
 
                     statistic[pr] += 1
 
@@ -174,7 +201,14 @@ with subprocess.Popen(["ffmpeg", "-loglevel", "quiet", "-i",
 
         sent = " ".join([data1["result"][j]["word"] for j in range(0, len(data1["result"]))])
         pr = make_predict(FILE_NAME, start, end)
-        print(sent, "@", pr, sep="")
+
+        if use_colors:
+            add_to_word(sent, pr)
+            print(sent, "@", pr, sep="")
+        else:
+            add_to_word(sent, -1)
+            print(sent, "@", sep="")
+
         statistic[pr] += len(data1["result"])
 
     names = ['angry', 'disgust', 'inspiration', 'fun', 'neutral', 'sad']
@@ -185,4 +219,5 @@ with subprocess.Popen(["ffmpeg", "-loglevel", "quiet", "-i",
         plt.bar(names, values)
         plt.savefig(fname=f'statistic/{FILE_NAME[:-4]}.png')
 
+    doc.save(f'./files/{FILE_NAME[:-4]}.docx')
     # print(f"{statistic[0]} {statistic[1]} {statistic[2]} {statistic[3]} {statistic[4]} {statistic[5]}@")
