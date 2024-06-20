@@ -1,0 +1,69 @@
+.btn {
+	border: none;
+	font-family: "Poppins", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 15px;
+	color: inherit;
+	background: none;
+	width: 175px;
+	height: 48px;
+	cursor: pointer;
+	display: inline-block;
+	margin: 20px 90px;
+	text-align: center;
+	letter-spacing: 1px;
+	border-radius: 8px;
+	outline: none;
+	position: relative;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+  }
+  
+  .btn:after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+  }
+  
+  /* Pseudo elements for icons */
+  .btn:before {
+	speak: none;
+	font-family: "Poppins", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	text-transform: none;
+	line-height: 1;
+	position: relative;
+	-webkit-font-smoothing: antialiased;
+  }
+  
+  
+  /* Button 3 */
+  .btn-3 {
+	background: #8770FF;
+	color: #fff;
+  }
+  
+  .btn-3:hover {
+	background: #694CFF;
+  }
+  
+  .btn-3:active {
+	background: #694CFF;
+	top: 2px;
+  }
+  
+  .btn-3:before {
+	position: absolute;
+	height: 100%;
+	left: 0;
+	top: 0;
+	line-height: 3;
+	font-size: 140%;
+	width: 60px;
+  }

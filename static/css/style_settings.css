@@ -1,0 +1,147 @@
+p.name_func{
+	background:url("../картинка_генератор.png") no-repeat center/cover;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color: transparent;
+  color:yellow;
+  letter-spacing:1px;
+  font-family: 'Open Sans';
+  margin-top: 25px;
+  font-weight:bold;
+  word-wrap: break-word;
+  margin-bottom: 0;
+  font-size:32px;
+}
+
+p.name_func1{
+	background:url("../картинка_генератор.png") no-repeat center/cover;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color: transparent;
+  color:yellow;
+  letter-spacing:1px;
+  width: 350px;
+  font-family: 'Open Sans';
+  display: block;
+  margin-top: 25px;
+  font-weight:bold;
+  word-wrap: break-word;
+  margin-bottom: 0;
+  font-size:36px;
+}
+
+div.settings{
+	width: 450px;
+	display: inline-block;
+	margin-left: 65px;
+	position: relative;
+	inset: 0;
+	place-content: center;
+	user-select: none;
+	-webkit-user-select: none; /* Chrome/Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE/Edge */
+}
+
+div.sett_change{
+	display: inline-block;
+	margin-left: 15px;
+	margin-top: 0px;
+	width: 340px;
+}
+
+p.sett{
+	font-size: 20px;
+	font-family: 'Manrope';
+	font-weight: bold;
+}
+
+div.upload_file{
+	padding-top: 25px;
+	cursor: pointer;
+	width: 336px;
+	height: 168px;
+	display: inline-block;
+	margin-left: 15px;
+	border-radius: 20px;
+	background-color: #FAFAFA;
+	overflow: hidden;
+}
+
+img.test {
+	display: inline-block;
+}
+
+div.load-file {
+	display: flex;
+	margin-bottom: 10px;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+}
+
+p.sett1{
+	display: inline-block;
+	font-size: 18px;
+	font-family: 'Manrope';
+	text-decoration: none;
+	color: #000;
+	font-weight: bold;
+	margin-top: 0px;
+}
+
+div.load-file p{
+	text-decoration: none;
+}
+p.sett2{
+	display: inline-block;
+	font-size: 14px;
+	text-decoration: none;
+	font-family: 'Manrope';
+	font-weight: bold;
+	color: #A0A0A0;
+	margin-top: -20px;
+}
+a.hrefref{
+	text-decoration: none;
+}
+
+div.desc_sett{
+	width: fit-content;
+	display: block;
+}
+
+.aside-menu li {
+	font-weight: 300;
+	position: relative;
+	border: none;
+	padding: 0 0 0 0;
+	height: fit-content;
+	width: fit-content;
+	margin-left: 15px;
+	font-size: 16px;
+	list-style-type:none;
+	font-family: 'Open Sans';
+}
+.aside-menu li.desc {
+	color: #8B94AD;
+	width: fit-content;
+	font-size: 12px;
+	margin-bottom: 10px;
+}
+
+
+.aside-menu a {
+	color: #000000;
+}
+
+div.sett_select{
+	display: flex;
+	height: fit-content;
+	width: fit-content;
+}
+
+div.lang{
+	width: fit-content;
+    position: absolute;
+    right: 80px;
+	display: block;
+}
