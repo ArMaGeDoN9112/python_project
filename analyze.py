@@ -1,15 +1,13 @@
 import os
 
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-
 import json
 
 import subprocess
 import sys
 
-import tensorflow
 import warnings
 import pickle
+import tensorflow
 import numpy as np
 import librosa
 import matplotlib.pyplot as plt
@@ -20,7 +18,7 @@ from pydub import AudioSegment
 import docx
 from docx.shared import RGBColor
 
-
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 
 tensorflow.keras.config.disable_interactive_logging()
@@ -180,7 +178,8 @@ with subprocess.Popen(["ffmpeg", "-loglevel", "quiet", "-i",
                 if i < word_count:
                     start = int(data1["result"][i]["start"] * 1000)
                     end = int(data1["result"][word_count-1]["end"] * 1000)
-                    sent = " ".join([data1["result"][j]["word"] for j in range(i, word_count)]) + "."
+                    sent = " ".join([data1["result"][j]["word"] for j in range(i, word_count)])
+                    sent += "."
 
                     if i == 0:
                         sent = sent.capitalize()
@@ -222,4 +221,3 @@ with subprocess.Popen(["ffmpeg", "-loglevel", "quiet", "-i",
         plt.savefig(fname=f'statistic/{FILE_NAME[:-4]}.png')
 
     doc.save(f'./files/{FILE_NAME[:-4]}.docx')
-    # print(f"{statistic[0]} {statistic[1]} {statistic[2]} {statistic[3]} {statistic[4]} {statistic[5]}@")
