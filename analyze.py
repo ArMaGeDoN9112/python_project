@@ -212,7 +212,7 @@ with subprocess.Popen(["ffmpeg", "-loglevel", "quiet", "-i",
 
         statistic[pr] += len(data1["result"])
 
-    names = ['angry', 'disgust', 'inspiration', 'fun', 'neutral', 'sad']
+    names = ['Злость', 'Отвращение', 'Воодушевление', 'Радость', 'Нейтральное', 'Грустный']
     values = [statistic[i] for i in statistic]
 
     if gen_statistic:
