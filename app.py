@@ -11,7 +11,6 @@ import os
 import time
 import subprocess
 
-from typing import Dict
 from hashlib import sha256
 
 from flask import Flask, request, jsonify, render_template, Response, send_file
@@ -96,7 +95,9 @@ def get_stat(key):
 @app.route("/api/download-file/<key>")
 def download_file(key):
     filename = f"./files/{key}.docx"
-    response = send_file(filename, mimetype='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+    response = send_file(filename,
+                         mimetype='application/'
+                                  'vnd.openxmlformats-officedocument.wordprocessingml.document')
     os.remove(filename)
 
     return response
@@ -113,7 +114,12 @@ def start_analyze(_sock):
 
     _sock.send(json.dumps({"result": "OK"}))
     proc = subprocess.Popen(
-        ["python3", "analyze.py", f"{key}.wav", f"{use_colors}", f"{gen_statistic}"], stdout=subprocess.PIPE
+        ["python3",
+         "analyze.py",
+         f"{key}.wav",
+         f"{use_colors}",
+         f"{gen_statistic}"],
+        stdout=subprocess.PIPE
     )
 
     while True:
